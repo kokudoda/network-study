@@ -1,0 +1,25 @@
+services:
+# Webサーバー1 (ポート8080でアクセス)
+  web1:
+   image: nginx:1.22 #nginxバージョン1.22
+   ports:
+    - "8080:80" #ホスト:コンテナ
+   volumes:
+    - ./html/index.html:/usr/share/nginx/html/index.html
+
+  web2:
+   image: nginx:1.22
+   ports:
+    - "8081:80"
+   volumes:
+    - ./html/index2.html:/usr/share/nginx/html/index.html
+ #./html/index2.html ← ubuntu内のファイル
+ #/usr/share/nginx/html/index.html ← nginxが読むファイル
+
+ # クライアント (curlでリクエストを送るコンテナ)
+  client:
+    image: curlimages/curl
+    command: sleep infinity  # コンテナを起動したままにする(infinity)
+    depends_on:
+     - web1
+     - web2
