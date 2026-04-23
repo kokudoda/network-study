@@ -44,17 +44,17 @@ docker compose cp web1:/tmp/capture.pcapng ./capture.pcapng
 - tcpdumpでパケットキャプチャしWiresharkで観察
 
 
-'''mermaid
+```mermaid
 graph TD
     client -->|HTTP port8080| web1
     client -->|HTTP port8081| web2
     web1 -->|index1.html| client
     web2 -->|index2.html| client
 
-    subgraph Docker Neteork
+    subgraph Docker Network
         web1[web1 : nginx]
         web2[web2 : nginx]
-        clinet[clinet : curl]
+        client[client : curl]
     end
-'''
+```
 
