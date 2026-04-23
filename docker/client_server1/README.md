@@ -42,3 +42,19 @@ docker compose cp web1:/tmp/capture.pcapng ./capture.pcapng
 ## 学んだこと
 - DockerのブリッジネットワークでのTCP/HTTP通信
 - tcpdumpでパケットキャプチャしWiresharkで観察
+
+
+'''mermaid
+graph TD
+    client -->|HTTP port8080| web1
+    client -->|HTTP port8081| web2
+    web1 -->|index1.html| client
+    web2 -->|index2.html| client
+
+    subgraph Docker Neteork
+        web1[web1 : nginx]
+        web2[web2 : nginx]
+        clinet[clinet : curl]
+    end
+'''
+
