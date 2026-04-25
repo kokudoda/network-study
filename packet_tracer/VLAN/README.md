@@ -29,23 +29,30 @@ name VLAN10
 
 vlan20
 name VLAN20
-
-[PC0 <=> Switch]
+```
+#### PC0とSwitchの接続
+```
 interface FastEthernet0/1
 switchport mode access
 switchport access vlan10
+```
 
-[PC1 <=> Switch]
+#### PC1とSwitchの接続
+```
 interface FastEthernet0/2
 switchport mode access
 switchport access vlan10
+```
 
-[PC2 <=> Switch]
+#### PC2とSwitchの接続
+```
 interface FastEthernet0/3
 switchport mode access
 switchport access vlan20
+```
 
-[Switch <=> Router]
+#### SwitchとRouterの接続
+```
 interface FastEthernet0/4
 switchport mode trunk
 ```
