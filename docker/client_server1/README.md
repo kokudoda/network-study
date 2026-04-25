@@ -6,7 +6,7 @@
 ## 起動方法
 docker compose up -d
 
-##　通信の確認方法
+## 通信の確認方法
 clientコンテナに入ります
 docker compose exec client sh
 
