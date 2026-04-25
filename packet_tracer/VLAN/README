@@ -1,9 +1,9 @@
-# Cisco Packet TracerでRouter on a Stick
+#Cisco Packet TracerでRouter on a Stick
 
-## 構成図
+##構成図
 ![構成図](./topology.png)
 
-## ネットワーク構成
+##ネットワーク構成
 | 機器 | VLAN | IPアドレス|
 |------|------|-----------|
 | PC0 | VLAN10 | 192.168.10.1 |
@@ -11,18 +11,18 @@
 | PC2 | VLAN20 | 192.168.20.1 |
 | Router | - | 192.168.10.254 / 192.168.20.254 |
 
-## 構築でのポイント
+##構築でのポイント
 - SwitchとRouter間はTrunkポート(802.1Q)で接続
 - RouterにサブインターフェースでVLAN間ルーティングを実現
 - 異なるVLAN間(今回ではVLAN10とVLAN20)の通信はRouterを経由する
 
-## 動作確認
+##動作確認
 - PC0 -> PC1 (VLAN10内通信) ping成功
 - PC0 -> PC2 (VLAN10とVLAN20間通信) ping成功
 
-## 設定内容
+##設定内容
 
-### Switch
+###Switch
 - vlan10
 - name VLAN10
 
@@ -48,7 +48,7 @@
 - interface FastEthernet0/4
 - switchport mode trunk
 
-### Router
+###Router
 - interface GigabitEthernet0/0.10
 - encapsulation dot1Q 10
 - ip address 192.168.10.254 255.255.255.0
