@@ -1,0 +1,13 @@
+services:
+ web1:
+  build: ./web1
+  container_name: web1
+
+ web2:
+  build: ./web2
+  container_name: web2
+
+ client: 
+  build: ./client
+  container_name: client
+  tty: true
