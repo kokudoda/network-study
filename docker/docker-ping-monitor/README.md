@@ -12,7 +12,7 @@ Docker composeで構築した仮想ネットワーク上で、pythonを用いて
 docker compose up --build
 ```
 
-##　停止
+## 停止
 'Ctrl + C'
 
 ## 結果
